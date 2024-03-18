@@ -1,7 +1,8 @@
 "use client";
 import { usePathname } from "next/navigation";
-import styles from "./navbar.module.css";
+import styles from "./Navbar.module.css";
 import {
+  MdDehaze,
   MdNotes,
   MdNotifications,
   MdOutlineChat,
@@ -24,7 +25,7 @@ const Navbar = ({ OpenSidebar }) => {
           <MdOutlineChat size={20} />
           <MdNotifications size={20} />
           <MdPublic size={20} />
-          <MdNotes onClick={OpenSidebar} />
+          <MdDehaze onClick={OpenSidebar} />
         </div>
       </div>
     </div>
