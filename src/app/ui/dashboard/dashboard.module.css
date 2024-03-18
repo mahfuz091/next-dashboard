@@ -9,6 +9,30 @@
   min-height: 100vh;
 }
 
+.menuOpen {
+  position: fixed !important;
+  border-radius: 0 !important;
+  left: 0 !important;
+  z-index: 99999999999999999999999 !important;
+  width: 320px;
+  overflow-y: scroll;
+  height: 100% !important;
+}
+
+@media (max-width: 992px) {
+  .menu {
+    position: absolute;
+    left: -500px;
+    top: 0;
+    z-index: 99999999999999999999;
+
+    width: 320px;
+    margin-left: 0;
+    margin-top: 0;
+    overflow-y: scroll;
+  }
+}
+
 .content {
   flex: 4;
   padding: 20px;
