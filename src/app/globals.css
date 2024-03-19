@@ -2,7 +2,12 @@
   --bg: #151c2c;
   --bgSoft: #fff;
   --text: white;
+  --textDark: #000;
   --textSoft: #b7bac1;
+}
+
+body {
+  background: #f7f7f9;
 }
 ul {
   list-style: none;

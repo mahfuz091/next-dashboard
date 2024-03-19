@@ -8,7 +8,7 @@
 }
 
 .title {
-  color: var(--textSoft);
+  color: var(--textDark);
   font-weight: bold;
   text-transform: capitalize;
 }
@@ -19,17 +19,23 @@
   gap: 20px;
 }
 
+@media (min-width: 1024px) {
+  .menuBar {
+    display: none;
+  }
+}
+
 .search {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background-color: #2e374a;
-  padding: 10px;
-  border-radius: 10px;
+  position: relative;
+}
+.searchIcon {
+  position: absolute;
+  top: 20px;
+  left: 15px;
 }
 
 .input {
-  background-color: transparent;
+  background-color: #fff;
   border: none;
   color: var(--text);
 }
