@@ -9,7 +9,7 @@ const DashboardLayout = ({ children }) => {
   const OpenSidebar = () => {
     setOpenSidebarToggle(!openSidebarToggle);
   };
-  console.log(openSidebarToggle);
+
   return (
     <div className={styles.container}>
       <div
