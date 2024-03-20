@@ -38,7 +38,7 @@ const UsersPage = () => {
           <TableBody>
             {rows.map((row) => (
               <TableRow
-                key={row.name}
+                key={row.sl}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component='th' scope='row'>
