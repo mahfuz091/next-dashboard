@@ -32,7 +32,7 @@ const Navbar = ({ OpenSidebar }) => {
               p: "2px 4px",
               display: "flex",
               alignItems: "center",
-              width: 400,
+              width: 320,
             }}
           >
             {/* <IconButton sx={{ p: "10px" }} aria-label='menu'>
