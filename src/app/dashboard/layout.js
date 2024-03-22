@@ -11,18 +11,22 @@ const DashboardLayout = ({ children }) => {
   };
 
   return (
-    <div className={styles.container}>
-      <div
-        className={
-          openSidebarToggle ? `${styles.menu} ${styles.menuOpen}` : styles.menu
-        }
-      >
-        <Sidebar />
-      </div>
-      <div className={styles.content}>
-        <Navbar OpenSidebar={OpenSidebar} />
-        {children}
-        {/* <Footer /> */}
+    <div>
+      <Navbar OpenSidebar={OpenSidebar} />
+      <div className={styles.container}>
+        <div
+          className={
+            openSidebarToggle
+              ? `${styles.menu} ${styles.menuOpen}`
+              : styles.menu
+          }
+        >
+          <Sidebar />
+        </div>
+        <div className={styles.content}>
+          {children}
+          {/* <Footer /> */}
+        </div>
       </div>
     </div>
   );

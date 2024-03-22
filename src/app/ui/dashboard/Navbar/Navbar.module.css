@@ -8,9 +8,8 @@
 }
 
 .title {
-  color: var(--textDark);
-  font-weight: bold;
-  text-transform: capitalize;
+  display: flex;
+  gap: 50px;
 }
 
 .menu {

@@ -28,24 +28,24 @@ const SignUpPage = () => {
   const date = `${dateOfBirth.$y}-${(dateOfBirth.$M + 1)
     .toString()
     .padStart(2, "0")}-${dateOfBirth.$D.toString().padStart(2, "0")}`;
-  console.log(date);
+  // console.log(date);
 
   const [imgSrc, setImgSrc] = useState("/1.png");
+  console.log(imgSrc);
 
   function onChange(event) {
     setImgSrc(event.target.files[0]);
   }
 
-  //   const onChange = (file) => {
-  //     const reader = new FileReader();
+  // const onChange = (file) => {
+  //   const reader = new FileReader();
 
-  //     const { files } = file.target;
-  //     if (files && files.length !== 0) {
-  //       console.log(reader);
-  //       reader.onload = () => setImgSrc(reader.result);
-  //       reader.readAsDataURL(files[0]);
-  //     }
-  //   };
+  //   const { files } = file.target;
+  //   if (files && files.length !== 0) {
+  //     reader.onload = () => setImgSrc(reader.result);
+  //     reader.readAsDataURL(files[0]);
+  //   }
+  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -55,17 +55,10 @@ const SignUpPage = () => {
       email,
       password,
       date_of_birth: date,
-      avatwr: imgSrc,
+      // avatar: imgSrc,
       password_confirmation: confirmPassword,
       organization,
       designation_id: designationId,
-      // name,
-      // email,
-      // password,
-      // date_of_birth: "1985-08-12",
-      // organization: "OYOLLOO",
-      // designation_id: "1",
-      // password_confirmation: "123456",
     };
     console.log(user);
     try {
@@ -76,7 +69,7 @@ const SignUpPage = () => {
 
       //   localStorage.setItem("accessToken", accessToken);
       //   localStorage.setItem("user", JSON.stringify(data));
-      //   router.push("/dashboard");
+      router.push("/users/sign-in");
     } catch (error) {
       console.error("Error:", error);
     }
@@ -196,7 +189,7 @@ const SignUpPage = () => {
                 hidden
                 type='file'
                 onChange={onChange}
-                accept='image/png, image/jpeg'
+                accept='image/*'
                 id='account-settings-upload-image'
               />
             </Button>

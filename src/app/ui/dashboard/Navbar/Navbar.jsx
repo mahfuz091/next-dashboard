@@ -16,14 +16,17 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import DirectionsIcon from "@mui/icons-material/Directions";
+import { Image } from "@mui/icons-material";
+import logo from "@/assets/images/oyolloo-logo-color-horizontal.png";
+import UserDropdown from "@/Component/Shared-Component/UserDropDown/UserDropdown";
 
 const Navbar = ({ OpenSidebar }) => {
   const pathname = usePathname();
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>{pathname.split("/").pop()}</div>
-      <div className={styles.menu}>
+      <div className={styles.title}>
+        <img style={{ maxWidth: "220px" }} src={logo.src} alt='' />
         <div className={styles.search}>
           {/* <MdSearch className={styles.searchIcon} /> */}
           <Paper
@@ -46,20 +49,14 @@ const Navbar = ({ OpenSidebar }) => {
             <IconButton type='button' sx={{ p: "10px" }} aria-label='search'>
               <SearchIcon />
             </IconButton>
-            {/* <Divider sx={{ height: 28, m: 0.5 }} orientation='vertical' />
-            <IconButton
-              color='primary'
-              sx={{ p: "10px" }}
-              aria-label='directions'
-            >
-              <DirectionsIcon />
-            </IconButton> */}
           </Paper>
         </div>
+      </div>
+      <div className={styles.menu}>
         <div className={styles.icons}>
           {/* <MdOutlineChat size={20} /> */}
           <MdNotifications size={20} />
-          {/* <MdPublic size={20} /> */}
+          <UserDropdown></UserDropdown>
           <MdDehaze className={styles.menuBar} onClick={OpenSidebar} />
         </div>
       </div>
