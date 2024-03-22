@@ -25,7 +25,7 @@ const UsersPage = () => {
   return (
     <Box sx={{ paddingTop: "30px" }}>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label='simple table'>
+        <Table sx={{ minWidth: 650 }} aria-label='user table'>
           <TableHead>
             <TableRow>
               <TableCell>Sl. No.</TableCell>
