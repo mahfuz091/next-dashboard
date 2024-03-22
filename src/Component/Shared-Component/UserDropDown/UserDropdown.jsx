@@ -1,7 +1,7 @@
 "use client";
 
 // ** React Imports
-import { useState, Fragment, useContext } from "react";
+import { useState, Fragment, useContext, useEffect } from "react";
 
 // AxiosInstance
 import axiosInstance from "@/lib/axios-instance";
@@ -45,7 +45,26 @@ const UserDropdown = () => {
   // ** Hooks
   const router = useRouter();
 
+  // const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    // const token = localStorage.getItem("accessToken");
+    // console.log(token);
+
+    // const getUser = async () => {
+    //   const response = await axiosInstance.get("/api/profile", {
+    //     headers: {
+    //       Authorization: `Bearer ${token}`,
+    //     },
+    //   });
+    //   const data = response.data.data;
+    //   setUser(data);
+    // };
+    getUser();
+  }, []);
+
   const handleDropdownOpen = (event) => {
+    // setControl(!control);
     setAnchorEl(event.currentTarget);
   };
 
@@ -67,10 +86,14 @@ const UserDropdown = () => {
       setAnchorEl(null);
       localStorage.removeItem("accessToken");
       localStorage.removeItem("user");
-      router.push("users/sign-in");
+      router.push("/users/sign-in");
     } catch (error) {
       console.error("Error:", error);
     }
+  };
+  const handleAccount = () => {
+    setAnchorEl(null);
+    router.push("/dashboard/account/edit");
   };
   const styles = {
     py: 2,
@@ -88,8 +111,8 @@ const UserDropdown = () => {
 
   //   Contex Api
 
-  const { user } = useContext(HrContext);
-  console.log(user);
+  const { user, control, setControl, getUser } = useContext(HrContext);
+  // console.log(user);
 
   return (
     <Fragment>
@@ -104,7 +127,7 @@ const UserDropdown = () => {
           alt='John Doe'
           onClick={handleDropdownOpen}
           sx={{ width: 40, height: 40 }}
-          src='/images/avatars/1.png'
+          src='/noavatar.png'
         />
       </Badge>
       <Menu
@@ -124,7 +147,7 @@ const UserDropdown = () => {
             >
               <Avatar
                 alt='John Doe'
-                src='/images/avatars/1.png'
+                src='/noavatar.png'
                 sx={{ width: "2.5rem", height: "2.5rem" }}
               />
             </Badge>
@@ -152,6 +175,18 @@ const UserDropdown = () => {
         <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
           <Box sx={styles}>
             <AccountOutline sx={{ marginRight: 2 }} />
+            Go to my Profile
+          </Box>
+        </MenuItem>
+        <MenuItem sx={{ p: 0 }} onClick={() => handleAccount()}>
+          <Box sx={styles}>
+            <CogOutline sx={{ marginRight: 2 }} />
+            Account Settings
+          </Box>
+        </MenuItem>
+        {/* <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
+          <Box sx={styles}>
+            <AccountOutline sx={{ marginRight: 2 }} />
             Profile
           </Box>
         </MenuItem>
@@ -166,14 +201,9 @@ const UserDropdown = () => {
             <MessageOutline sx={{ marginRight: 2 }} />
             Chat
           </Box>
-        </MenuItem>
+        </MenuItem> */}
         <Divider />
-        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
-          <Box sx={styles}>
-            <CogOutline sx={{ marginRight: 2 }} />
-            Settings
-          </Box>
-        </MenuItem>
+
         <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
           <Box sx={styles}>
             <CurrencyUsd sx={{ marginRight: 2 }} />
