@@ -95,6 +95,10 @@ const UserDropdown = () => {
     setAnchorEl(null);
     router.push("/dashboard/account/edit");
   };
+  const handleProfile = () => {
+    setAnchorEl(null);
+    router.push("/dashboard/profile");
+  };
   const styles = {
     py: 2,
     px: 4,
@@ -172,7 +176,7 @@ const UserDropdown = () => {
           </Box>
         </Box>
         <Divider sx={{ mt: 0, mb: 1 }} />
-        <MenuItem sx={{ p: 0 }} onClick={() => handleDropdownClose()}>
+        <MenuItem sx={{ p: 0 }} onClick={() => handleProfile()}>
           <Box sx={styles}>
             <AccountOutline sx={{ marginRight: 2 }} />
             Go to my Profile

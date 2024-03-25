@@ -12,6 +12,7 @@ import {
   MdOutlineSettings,
   MdHelpCenter,
   MdLogout,
+  MdHome,
 } from "react-icons/md";
 import MenuLink from "./menulink/MenuLink";
 
@@ -20,9 +21,9 @@ const menuItems = [
     title: "Pages",
     list: [
       {
-        title: "Dashboard",
+        title: "Home",
         path: "/dashboard",
-        icon: <MdDashboard />,
+        icon: <MdHome />,
       },
       {
         title: "Users",
@@ -66,7 +67,7 @@ const menuItems = [
     list: [
       {
         title: "Settings",
-        path: "/dashboard/settings",
+        path: "/dashboard/account/edit",
         icon: <MdOutlineSettings />,
       },
       {
@@ -81,7 +82,7 @@ const menuItems = [
 const Sidebar = () => {
   return (
     <div className={styles.container}>
-      <div className={styles.user}>
+      {/* <div className={styles.user}>
         <Image
           className={styles.userImage}
           src={"/noavatar.png"}
@@ -93,7 +94,7 @@ const Sidebar = () => {
           <span className={styles.username}>User</span>
           <span className={styles.userTitle}>Administrator</span>
         </div>
-      </div>
+      </div> */}
       <ul className={styles.list}>
         {menuItems.map((cat) => (
           <li key={cat.title}>
